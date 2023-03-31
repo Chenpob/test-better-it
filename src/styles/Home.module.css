@@ -2,3 +2,11 @@
   text-align: center;
   color: white;
 }
+
+.bgBtn{
+  clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+}
+
+.bgBtn2{
+  clip-path: polygon(100% 0, 100% 20%, 94% 50%, 100% 80%, 100% 100%, 0 100%, 0 0);
+}

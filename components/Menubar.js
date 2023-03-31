@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Styles from '../src/styles/Home.module.css'
+import { useRouter } from 'next/router';
 import { VscGraph } from "react-icons/vsc";
 import { CiCircleList } from "react-icons/ci";
 import { BiConversation } from "react-icons/Bi";
@@ -56,18 +57,23 @@ export const menuData = [
 ]
 
 export default function Menubar() {
+
+  const router = useRouter()
+  const pathName = router.pathname
+
   return (
     <>
-      <div className='w-1/5 h-screen border-2'>
+      <div className='w-1/5 h-screen border-r-2 bg-white'>
         <p className={`pt-5 text-center`}> ADMIN CHATBOT </p>
-        <div className="border-b-2 border-gray-300 m-5" ></div>
+        <div className="border-b-2 border-gray-200 m-5" ></div>
         <ul>
           {menuData.map((item, index) => {
             return (
               <li key={index}>
-                <div className={`${Styles.btnM} ${item.color} m-4 p-5 hover:bg-gray-400`}>
+
+                <div className={ `${pathName === item.path ? `${Styles.bgBtn}` : `` } ${Styles.btnM} ${item.color} my-3 mx-5 p-5 hover:bg-gray-400`} >
                   <Link href={item.path} className='flex flex-row'> 
-                    <div className="pt-1 mr-3 scale-125">{item.icon} </div> 
+                    <div className="pt-1 mr-2 scale-125">{item.icon} </div> 
                     <div> {item.title} </div>
                   </Link>
                 </div>
