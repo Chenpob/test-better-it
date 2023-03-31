@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <>
+      <h1 className='bg-orange-900'>Test Tailwind</h1>
     </>
   )
 }
