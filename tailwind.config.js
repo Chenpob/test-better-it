@@ -12,6 +12,9 @@ module.exports = {
           5:'#73bc5b',
           6:'#df60be',
           7:'#b8944d'
+        },
+        font:{
+          h:'#8bdcdf'
         }
       }
     },
