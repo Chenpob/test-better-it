@@ -39,13 +39,21 @@ export default function Dataanalytics({intents}) {
   const [optionValue,setOptionValue] = useState({
     plugins: {
       datalabels: {
+        formatter: (value) => {
+          let sum=0
+          intents.forEach(i => {
+            sum += i.point
+          });
+          // console.log(sum)
+          return Math.round((value/sum)*100) + '%';
+        },
         display: true,
         align: 'bottom',
-        backgroundColor: 'rgba(255,255,255,255)',
         borderRadius: 3,
-        font: {
-          size: 25,
-        },
+        color: 'rgba(255,255,255,255)',
+        font:{
+          size:25
+        }
       },
     },
   })
@@ -58,7 +66,7 @@ export default function Dataanalytics({intents}) {
         </div>
         <div className='flex flex-wrap justify-center'>
           <div className='w-1/3'>
-            <Pie className='scale-90' data={intentData} option={optionValue} />;
+            <Pie className='scale-90' data={intentData} options={optionValue} />;
           </div>
         </div>
       </div>
